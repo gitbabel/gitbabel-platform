@@ -18,3 +18,11 @@ test('Run remark process for markdown string "just text should be paragraph" and
   // aseertions
   expect(resultToTest.children[0].type).toBe('paragraph')
 })
+
+test('Run remark process for markdown string "> that is some blockquote" and verify the mdast has a type blockquote', () => {
+  // run our function with some sample markdown text
+  const resultToTest = process('>sometexth blahb habksdf   and oh  BlockQuote BAM')
+
+  // aseertions
+  expect(resultToTest.children[0].type).toBe('blockquote')
+})
