@@ -18,3 +18,10 @@ test('Run remark process for markdown string "just text should be paragraph" and
   // aseertions
   expect(resultToTest.children[0].type).toBe('paragraph')
 })
+
+test('Run frontmatter process for markdown string looking for yaml', () => {
+  // \r used to imulate carriage return
+  const resultToTest = process(
+   `---\rtitle: "Testing"\r---`)
+  expect(resultToTest.children[0].type).toBe('yaml')
+})
